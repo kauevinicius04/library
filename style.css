@@ -1,1 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+header {
+  text-align: center;
+}
+
+main {
+  display: grid;
+  height: 300px;
+  align-items: center;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.input {
+  display: flex;
+}
+
 /*# sourceMappingURL=style.css.map */
