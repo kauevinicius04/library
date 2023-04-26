@@ -7,3 +7,6 @@ function book(book,name,pages,read){
     this.read=read
 
 }
+function addBookToLibrary(){
+    library+= book()
+}
