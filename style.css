@@ -8,23 +8,39 @@ html {
 }
 
 header {
+  font-size: 2.5em;
   text-align: center;
+  margin-bottom: 5px;
 }
 
-main {
-  display: grid;
-  height: 300px;
-  align-items: center;
+label {
+  font-size: 1.3em;
+  margin-bottom: 3px;
 }
 
 #containerAddBook {
-  display: flex;
-  justify-content: center;
   text-align: center;
+  height: 50px;
+  margin-bottom: 4%;
+}
+
+#addBook {
+  width: 8%;
+  height: 100%;
+}
+
+.library {
+  padding: 0 1%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
 }
 
 .card {
-  grid-template-columns: repeat(5, 1fr);
+  border-radius: 7%;
+  height: 100%;
+  background-color: rgb(73, 192, 73);
   display: grid;
 }
 
@@ -37,25 +53,42 @@ main {
 }
 
 .input {
-  display: flex;
+  height: 30px;
+  width: 80%;
 }
 
 .containerInput {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
 
-#containerRead {
-  gap: 10px;
-  display: flex;
+.containerTitle {
+  padding-top: 10px;
+}
+
+.containerRead {
+  gap: 5px;
+}
+
+.read {
+  height: 20px;
+  width: 100%;
 }
 
 .button {
   color: white;
   background-color: rgb(63, 62, 62);
-  border: 1px transparent;
-  border-radius: 2px;
+  border-radius: 8%;
   text-align: center;
-  width: 13%;
+}
+
+.submit {
+  width: 100px;
+  height: 40px;
+  margin-bottom: 5px;
 }
 
 /*# sourceMappingURL=style.css.map */
