@@ -13,6 +13,9 @@
 <body>
     <Header>Biblioteca</Header>
     <main>
+        <div  id="containerAddBook"> 
+        <button class="button" id="addBook">Add livro</button>
+        </div>
         <div class="book card">
             <div class="card-body">
                 <div class="containerInput" id="containerTitle"> 
@@ -25,12 +28,13 @@
             </div>
             <div  class="containerInput" id="containerPages">
                 <label for="pages">Páginas</label>
-                <input type="text" class="input" id="pages">
+                <input type="number" class="input" id="pages" required>
              </div>
              <div  class="containerInput" id="containerRead"> 
                 <label for="read">Lido</label>
                 <input type="checkbox" class="input" id="read"> 
             </div>
+            <button class="button">Submit</button>
 
 
 

@@ -17,6 +17,17 @@ main {
   align-items: center;
 }
 
+#containerAddBook {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.card {
+  grid-template-columns: repeat(5, 1fr);
+  display: grid;
+}
+
 .card-body {
   display: flex;
   flex-direction: column;
@@ -27,6 +38,24 @@ main {
 
 .input {
   display: flex;
+}
+
+.containerInput {
+  text-align: center;
+}
+
+#containerRead {
+  gap: 10px;
+  display: flex;
+}
+
+.button {
+  color: white;
+  background-color: rgb(63, 62, 62);
+  border: 1px transparent;
+  border-radius: 2px;
+  text-align: center;
+  width: 13%;
 }
 
 /*# sourceMappingURL=style.css.map */
