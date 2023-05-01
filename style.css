@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html {
@@ -38,7 +39,6 @@ label {
 }
 
 .card {
-  visibility: hidden;
   width: 90%;
   border-radius: 7%;
   height: 100%;
@@ -51,15 +51,17 @@ label {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 3%;
 }
 
 .input {
-  height: 30px;
+  height: 100%;
   width: 80%;
 }
 
 .containerInput {
+  margin: auto;
+  height: 16%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -67,17 +69,12 @@ label {
   text-align: center;
 }
 
-.containerTitle {
-  padding-top: 10px;
-}
-
 .containerRead {
-  gap: 5px;
+  gap: 15%;
 }
 
 .read {
   width: 25%;
-  height: 30px;
 }
 
 .button {
@@ -88,19 +85,21 @@ label {
 }
 
 #submit {
-  width: 100px;
-  height: 40px;
-  margin-bottom: 5px;
+  width: 25%;
+  height: 11%;
+  margin-bottom: 1%;
 }
 
 #centered-element {
+  display: none;
   width: 25%;
-  height: 40%;
+  height: 55%;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 9999;
+  padding: 2% 0;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -7,8 +7,8 @@ const centerElement=document.getElementById("centered-element")
 const addBook=document.getElementById("addBook")
 
 const library=[]; 
-function visible(visibleProperty){
-    centerElement.style.visibility=visibleProperty
+function visible(displayProperty){
+    centerElement.style.display=displayProperty
 
 }
 function book(title,author,pages,read){
@@ -22,9 +22,9 @@ function addBookToLibrary(){
     const newsBook = new book(titleInput.value,authorInput.value,pagesInput.value,readInput.value)
     library.push(newsBook)
 }
-addBook.addEventListener("click",()=>{visible("visible")})
+addBook.addEventListener("click",()=>{visible("grid")})
 submit.addEventListener("click",function (){addBookToLibrary()
-    visible("hidden")})
+    visible("none")})
 
 function showBooks(){
     library.forEach(element => {
