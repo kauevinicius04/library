@@ -8,11 +8,6 @@ html {
   height: 100%;
 }
 
-body {
-  height: 1400px;
-  overflow-y: scroll;
-}
-
 header {
   font-size: 2.5em;
   text-align: center;
@@ -107,7 +102,6 @@ form {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 9999;
   padding: 1% 0;
 }
 
