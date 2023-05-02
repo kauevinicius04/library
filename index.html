@@ -19,24 +19,25 @@
         <div class="library"> 
         <div class="book card" id="centered-element">
             <div class="card-body">
+                <form>
                 <div class="containerInput containerTitle" > 
-                <label for="title">Título</label>
-                <input type="text" class= "input" id="titleInput">
+                <label for="titleInput">Título</label>
+                <input type="text" name="titleInput" class= "input" id="titleInput" required>
             </div>
             <div class="containerInput containerAuthor" >
-                <label for="author">Autor</label>
-                <input type="text" class="input author" id="authorInput" >
+                <label for="authorInput">Autor</label>
+                <input type="text" name="authorInput" class="input author" id="authorInput" required >
             </div>
             <div  class="containerInput containerPages" >
-                <label for="pages">Páginas</label>
-                <input type="number" class="input pages" id="pagesInput"required>
+                <label for="pagesInput">Páginas</label>
+                <input type="number" name="pagesInput" class="input pages" id="pagesInput" required>
              </div>
              <div  class="containerInput containerRead" > 
-                <label for="read">Lido</label>
-                <input type="checkbox" class="input read" id="readInput" > 
+                <label for="readInput">Lido</label>
+                <input type="checkbox" name="readInput" class="input read" id="readInput"> 
             </div>
-            <button  class="button" id="submit">Submit</button>
-            
+            <button class="button" id="submit">Submit</button>
+            </form>
 
             </div>
 

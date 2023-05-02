@@ -5,9 +5,10 @@ const readInput= document.getElementById("readInput")
 const submit=document.getElementById("submit")
 const centerElement=document.getElementById("centered-element")
 const addBook=document.getElementById("addBook")
+const required=document.querySelectorAll("[required]");
 
 const library=[]; 
-function visible(displayProperty){
+function display(displayProperty){
     centerElement.style.display=displayProperty
 
 }
@@ -22,9 +23,10 @@ function addBookToLibrary(){
     const newsBook = new book(titleInput.value,authorInput.value,pagesInput.value,readInput.value)
     library.push(newsBook)
 }
-addBook.addEventListener("click",()=>{visible("grid")})
-submit.addEventListener("click",function (){addBookToLibrary()
-    visible("none")})
+addBook.addEventListener("click",()=>{display("grid")})
+submit.addEventListener("click",function a (event){
+    addBookToLibrary()
+    event.preventDefault()})
 
 function showBooks(){
     library.forEach(element => {
