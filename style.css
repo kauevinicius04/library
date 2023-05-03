@@ -8,6 +8,10 @@ html {
   height: 100%;
 }
 
+body {
+  transition: background-color 0.4s ease-in;
+}
+
 header {
   font-size: 2.5em;
   text-align: center;
@@ -93,7 +97,6 @@ form {
 }
 
 #centered-element {
-  display: none;
   box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.75);
   overflow: auto;
   max-width: 400px;
@@ -101,8 +104,17 @@ form {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   padding: 1% 0;
+  transform: scale(0) translate(-50%, -50%);
+}
+
+.slide-in {
+  transform: scale(1) translate(-50%, -50%) !important;
+  transition: transform 0.4s ease-out;
+}
+
+.fadeOut {
+  transition: transform 0.4s ease-in;
 }
 
 /*# sourceMappingURL=style.css.map */

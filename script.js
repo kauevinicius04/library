@@ -3,19 +3,16 @@ const authorInput = document.getElementById("authorInput")
 const pagesInput = document.getElementById("pagesInput")
 const readInput = document.getElementById("readInput")
 const submit = document.getElementById("submit")
-const centerElement = document.getElementById("centered-element")
+const centeredElement = document.getElementById("centered-element")
 const addBook = document.getElementById("addBook")
 const required = document.querySelectorAll("[required]");
-
-const form= document.getElementsByTagName("form")
+const form = document.getElementsByTagName("form")[0];
+const body = document.getElementsByTagName("body")[0];
 
 const library = [];
 
 
-function display(displayProperty) {
-    centerElement.style.display = displayProperty
 
-}
 
 function book(title, author, pages, read) {
     this.title = title;
@@ -30,6 +27,7 @@ function addBookToLibrary() {
 }
 
 
+
 function showBooks() {
     library.forEach(element => {
         console.log(element)
@@ -38,34 +36,78 @@ function showBooks() {
 
 }
 
- const requiring= () => {
+const requiring = () => {
     required.forEach((element) => {
-        if (element.value !== ""&&pagesInput.value>0) {
-            display("none") 
-             form[0].setAttribute('novalidate', '');
-            
-            
-         
-           
+        if (element.value !== "" && pagesInput.value > 0) {
+            centeredElement.classList.replace("slide-in", "fadeOut")
+            toggleAnimation()
+            form.setAttribute('novalidate', '');
+
+
+
+
         };
     })
-    };
-  
-addBook.addEventListener("click", () => {
-    form[0].removeAttribute("novalidate")
-    display("grid")
-    required.forEach(element=>{
-        element.value=""
-    })
-    readInput.checked=false
+};
+
+addBook.addEventListener("click", addBookReset
+
+)
+
+
+let slidedIn = false
+
+function toggleAnimation() {
+    if (slidedIn === false) {
+        centeredElement.classList.add("slide-in")
+        body.style.backgroundColor = "rgba(0,0,0,0.5)"
+        slidedIn=true
+        centeredElement.classList.replace("fadeOut","slide-in")
+
+        
+        
+
+
+    }
+    else if(slidedIn===true){
+        centeredElement.classList.replace("slide-in","fadeOut")
+            body.style.backgroundColor = "initial"
+            slidedIn=false
+    }
     
-})
-form[0].addEventListener("submit",(event)=>{
+
+}
+
+
+
+
+
+
+
+
+
+function addBookReset() {
+    toggleAnimation()
+    if (form.hasAttribute("novalidate")) {
+        form.removeAttribute("novalidate")
+    }
+    required.forEach(element => {
+        element.value = ""
+    })
+    readInput.checked = false
+
+}
+
+
+
+
+
+form.addEventListener("submit", (event) => {
     event.preventDefault()
 })
-submit.addEventListener("click", () =>{
+submit.addEventListener("click", () => {
     requiring()
     addBookToLibrary()
-    
-    
+
+
 })
