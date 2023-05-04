@@ -9,9 +9,12 @@ const required = document.querySelectorAll("[required]");
 const form = document.querySelector("Form");
 const body = document.querySelector("Body");
 const exit = document.getElementById("exit");
+const overlay = document.getElementById("overlay")
+const library= document.getElementById("library")
 
 
-const library = [];
+const libraryArray = [];
+
 let slidedIn = false
 
 function book(title, author, pages, read) {
@@ -21,19 +24,20 @@ function book(title, author, pages, read) {
     this.read = read;
 }
 
-function addBookToLibrary() {
+function addBookTolibraryArray() {
     const newsBook = new book(titleInput.value, authorInput.value, pagesInput.value, readInput.checked)
-    library.push(newsBook)
+    libraryArray.push(newsBook)
 }
 
 
 
 function showBooks() {
-    library.forEach(element => {
-        console.log(element)
-
-    });
-
+    for (let i = 0; i < libraryArray.length; i++) {
+        const newdiv = document.createElement("div");
+        library.appendChild(newdiv)
+        
+    }
+   
 }
 
 const requiring = () => {
@@ -41,7 +45,7 @@ const requiring = () => {
         if (element.value !== "" && pagesInput.value > 0) {
             centeredElement.classList.replace("slide-in", "fadeOut")
             toggleAnimation()
-            addBookToLibrary()
+            
             form.setAttribute('novalidate', '');
 
 
@@ -49,6 +53,7 @@ const requiring = () => {
 
         };
     })
+    addBookTolibraryArray()
 };
 
 addBook.addEventListener("click", addBookReset
@@ -67,19 +72,23 @@ exit.addEventListener("click",()=>{
 
 
 function toggleAnimation() {
-    if (slidedIn === false) {
+    
+     if (slidedIn === false) {
         centeredElement.classList.add("slide-in")
-        body.style.backgroundColor = "rgba(0,0,0,0.5)"
+        overlay.style.transform="scale(1)"
+        overlay.classList.add("active")
         addBook.style.transform="scale(0)"
         slidedIn=true
-        if(centeredElement.classList[2]==="fadeOut"){ 
+        if(centeredElement.classList[0]==="fadeOut"){ 
         centeredElement.classList.replace("fadeOut","slide-in")
     }
 
     }
+       
     else if(slidedIn===true){
         centeredElement.classList.replace("slide-in","fadeOut")
-            body.style.backgroundColor = "initial"
+            overlay.style = "initial"
+            overlay.classList.remove("active")
             addBook.style="initial"
             slidedIn=false
     }
