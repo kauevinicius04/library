@@ -32,11 +32,35 @@ function addBookTolibraryArray() {
 
 
 function showBooks() {
-    for (let i = 0; i < libraryArray.length; i++) {
-        const newdiv = document.createElement("div");
-        library.appendChild(newdiv)
+        const newDiv = document.createElement("div");
+        const lastArray=libraryArray[libraryArray.length-1]
+
+        for (let i = 0; i < book.length-1; i++) {
+             const newP = document.createElement("p")
+            newDiv.appendChild(newP)
+            switch (i) {
+                case 0:
+                    newP.id="titleInput"
+                newP.textContent=lastArray.title
+                    break;
+                case 1:
+                    newP.id="authorInput"
+                    newP.textContent=lastArray.author
+                case 2:
+                    newP.id="pagesInput"
+                    newP.textContent=lastArray.pages
+                default:
+                    break;
+            }
+            
+        }
         
-    }
+       
+        newDiv.classList.add("card")
+        
+        library.appendChild(newDiv)
+        
+    
    
 }
 
@@ -63,7 +87,8 @@ exit.addEventListener("click",()=>{
     toggleAnimation()
     form.setAttribute('novalidate', '')
 })
-
+overlay.addEventListener("click",toggleAnimation
+)
 
 
 
@@ -75,7 +100,6 @@ function toggleAnimation() {
     
      if (slidedIn === false) {
         centeredElement.classList.add("slide-in")
-        overlay.style.transform="scale(1)"
         overlay.classList.add("active")
         addBook.style.transform="scale(0)"
         slidedIn=true
