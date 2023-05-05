@@ -10,8 +10,7 @@ const fixedForm = document.getElementById("fixedForm")
 const exit = document.getElementById("exit");
 const overlay = document.getElementById("overlay")
 const library= document.getElementById("library")
-const card = document.querySelector(".card")
-
+const card = document.getElementsByClassName("card")
 
 const libraryArray = [];
 
@@ -32,21 +31,38 @@ function addBookTolibraryArray() {
 
 
 function showBooks() {
-        // Criar uma cópia do elemento original
-let cloneCard = centeredElement.cloneNode(true);
-
-// Remover o atributo "id" e a classe do clone
-cloneCard.removeAttribute("id");
+    // Criar uma cópia do elemento original
+let cloneCard = document.createElement("div")
+cloneCard.innerHTML=fixedForm.innerHTML
 cloneCard.classList = "card";
+cloneCard.removeAttribute("id");
+library.appendChild(cloneCard);
+const lastCard=library.lastElementChild
+function changeAttr(){
+    for (let i = 0; i < lastCard.children.length; i++) {
+        let lastCardChildren= lastCard.children[i]
+        lastCardChildren.removeAttribute("id")
+        if(lastCardChildren.childElementCount>0){
+            for (let j = 0; j < lastCardChildren.childElementCount; j++) {
+                lastCardChildren.children[j].removeAttribute("id")
+                
+
+                }  
+            }  
+        }
+}
+changeAttr()
+
+
+
+// Função recursiva para percorrer elementos filhos e neto
+  
+  };
+  
 
 // Adicionar o clone modificado a um novo local no DOM
 
-library.appendChild(cloneCard);
-       
-        
-    
    
-}
 
 const requiring = () => {
     required.forEach((element) => {
