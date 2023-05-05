@@ -6,11 +6,11 @@ const submit = document.getElementById("submit")
 const centeredElement = document.getElementById("centered-element")
 const addBook = document.getElementById("addBook")
 const required = document.querySelectorAll("[required]");
-const form = document.querySelector("Form");
-const body = document.querySelector("Body");
+const fixedForm = document.getElementById("fixedForm")
 const exit = document.getElementById("exit");
 const overlay = document.getElementById("overlay")
 const library= document.getElementById("library")
+const card = document.querySelector(".card")
 
 
 const libraryArray = [];
@@ -32,33 +32,17 @@ function addBookTolibraryArray() {
 
 
 function showBooks() {
-        const newDiv = document.createElement("div");
-        const lastArray=libraryArray[libraryArray.length-1]
+        // Criar uma cópia do elemento original
+let cloneCard = centeredElement.cloneNode(true);
 
-        for (let i = 0; i < book.length-1; i++) {
-             const newP = document.createElement("p")
-            newDiv.appendChild(newP)
-            switch (i) {
-                case 0:
-                    newP.id="titleInput"
-                newP.textContent=lastArray.title
-                    break;
-                case 1:
-                    newP.id="authorInput"
-                    newP.textContent=lastArray.author
-                case 2:
-                    newP.id="pagesInput"
-                    newP.textContent=lastArray.pages
-                default:
-                    break;
-            }
-            
-        }
-        
+// Remover o atributo "id" e a classe do clone
+cloneCard.removeAttribute("id");
+cloneCard.classList = "card";
+
+// Adicionar o clone modificado a um novo local no DOM
+
+library.appendChild(cloneCard);
        
-        newDiv.classList.add("card")
-        
-        library.appendChild(newDiv)
         
     
    
@@ -70,7 +54,7 @@ const requiring = () => {
             centeredElement.classList.replace("slide-in", "fadeOut")
             toggleAnimation()
             
-            form.setAttribute('novalidate', '');
+            fixedForm.setAttribute('novalidate', '');
 
 
 
@@ -85,7 +69,7 @@ addBook.addEventListener("click", addBookReset
 )
 exit.addEventListener("click",()=>{
     toggleAnimation()
-    form.setAttribute('novalidate', '')
+    fixedForm.setAttribute('novalidate', '')
 })
 overlay.addEventListener("click",toggleAnimation
 )
@@ -101,7 +85,7 @@ function toggleAnimation() {
      if (slidedIn === false) {
         centeredElement.classList.add("slide-in")
         overlay.classList.add("active")
-        addBook.style.transform="scale(0)"
+        addBook.style.transfixedForm="scale(0)"
         slidedIn=true
         if(centeredElement.classList[0]==="fadeOut"){ 
         centeredElement.classList.replace("fadeOut","slide-in")
@@ -127,8 +111,8 @@ function toggleAnimation() {
 
 function addBookReset() {
     toggleAnimation()
-    if (form.hasAttribute("novalidate")) {
-        form.removeAttribute("novalidate")
+    if (fixedForm.hasAttribute("novalidate")) {
+        fixedForm.removeAttribute("novalidate")
     }
     required.forEach(element => {
         element.value = ""
@@ -142,7 +126,7 @@ function addBookReset() {
 
 
 
-form.addEventListener("submit", (event) => {
+fixedForm.addEventListener("submit", (event) => {
     event.preventDefault()
 })
 submit.addEventListener("click", () => {

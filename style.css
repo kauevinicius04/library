@@ -60,11 +60,18 @@ label {
   height: 100%;
   background-color: rgb(73, 192, 73);
   display: grid;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3%;
 }
 
 form {
   height: 100%;
-  max-width: 400px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -87,8 +94,9 @@ form {
 }
 
 .bi:hover {
+  transform: scale(1.2);
   rotate: 25deg;
-  transition: rotate 0.4s ease-in 10ms;
+  transition: transform, rotate 0.4s ease-in 10ms;
 }
 
 .bi {
@@ -126,8 +134,8 @@ form {
   text-align: center;
 }
 
-.button:hover, #exit:hover {
-  opacity: 95%;
+.button:hover {
+  opacity: 97%;
   transform: scale(1.2);
   transition: transform 0.4s ease-out;
 }

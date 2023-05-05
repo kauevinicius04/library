@@ -17,38 +17,35 @@
         <button class="button" id="addBook">Add livro</button>
         </div>
         <div id="library"> 
-            <div class="card"> </div>
-            
         </div>
         <div id="overlay"> </div>
         <div id="centered-element">
-            <div class="card-body">
-                <form>
-                    <div id="exitContainer"> 
-                    <button  id="exit"> <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
-                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-                      </svg></button>
-                </div>
+            <form id="fixedForm">
+                <div id="exitContainer"> 
+                     <button  id="exit"> <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                     </svg></button>
+                    </div>
                 <div class="containerInput containerTitle" > 
-                <label for="titleInput">Título</label>
-                <input type="text" name="titleInput" class= "input" id="titleInput" required> 
-            </div>
-            <div class="containerInput containerAuthor" >
-                <label for="authorInput">Autor</label>
-                <input type="text" name="authorInput" class="input author" id="authorInput" required>
-            </div>
-            <div  class="containerInput containerPages" >
-                <label for="pagesInput">Páginas</label>
-                <input type="number" name="pagesInput" class="input pages" id="pagesInput" required>
-             </div>
-             <div  class="containerInput containerRead" > 
-                <label for="readInput">Lido</label>
-                <input type="checkbox" name="readInput" class="input read" id="readInput"> 
-            </div>
-            <button class="button" id="submit">Submit</button>
+                        <label for="titleInput">Título</label>
+                        <input type="text" name="titleInput" class= "input" id="titleInput" required> 
+                </div>
+                <div class="containerInput containerAuthor" >
+                    <label for="authorInput">Autor</label>
+                    <input type="text" name="authorInput" class="input author" id="authorInput" required>
+                </div>
+                <div  class="containerInput containerPages" >
+                    <label for="pagesInput">Páginas</label>
+                    <input type="number" name="pagesInput" class="input pages" id="pagesInput" required>
+                </div>
+                <div class="containerInput containerRead"> 
+                    <label for="readInput">Lido</label>
+                    <input type="checkbox" name="readInput" class="input read" id="readInput"> 
+                </div>
+                <button class="button" id="submit">Submit</button>
+                
             </form>
-
-            </div>
+ 
 
             </div>
 

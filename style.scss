@@ -60,18 +60,23 @@ label{
     background-color:$green-card;
     display: grid;
 }
-.card{
-    @include card()
-}
 
-form{
+@mixin stilus{
     height: 100%;
-    max-width: 400px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap:3%;
+}
+.card{
+    @include card();
+    @include stilus;
+}
+
+form{
+    @include stilus();
 }
 #exitContainer{
     display: flex;
@@ -88,8 +93,9 @@ form{
 
 }
 .bi:hover{
+    transform: scale(1.2);
     rotate: 25deg;
-    transition: rotate .4s ease-in 10ms;
+    transition: transform, rotate .4s ease-in 10ms;
     
 
 }
@@ -112,6 +118,7 @@ form{
     flex-direction: column;
     align-items: center;
 
+
 }
 .containerTitle{
     
@@ -133,8 +140,8 @@ form{
     border-radius: 8%;
     text-align: center;
 }
-.button:hover,#exit:hover{
-    opacity: 95%;
+.button:hover{
+    opacity: 97%;
     transform: scale(1.2);
     transition: transform .4s ease-out;
 }
