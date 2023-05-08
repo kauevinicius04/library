@@ -49,18 +49,28 @@ change()
  
   };
 function change(){
-    if(card.length>0){
-        const lastCloneCard=card[card.length-1]
-        const inputOfLastCard=lastCloneCard.querySelectorAll("input")
+        const lastCloneCard=card[card.length-1];
+        const inputOfLastCard=lastCloneCard.querySelectorAll("input");
+        const changeExit=lastCloneCard.querySelector("#exit")
+        changeExit.removeAttribute("id")
+        changeExit.classList.add("remove")
+        const remove= document.querySelectorAll(".remove")
+        remove.forEach(element=>{
+            element.addEventListener("click",()=>{
+                lastCloneCard.remove()
+            })
+        })
         inputOfLastCard.forEach(element=>{
+            element.classList.add("readOnlyInput")
             if(element.hasAttribute("required"))
             {
             element.removeAttribute("required")
             element.setAttribute("readonly","") }
-    }
-    )
     
-    }
+    })
+
+    
+    
     selectValidation()
     
 }
@@ -76,11 +86,13 @@ function selectValidation(){
    
 
 const requiring = () => {
+    let canShowBooks=false
     required.forEach((element) => {
-        if (element.value && pagesInput.value > 0) {
+        if (!element.value && pagesInput.value > 0) {
             console.log(element)
             centeredElement.classList.replace("slide-in", "fadeOut")
             toggleAnimation()
+            canShowBooks=true
 
 
 
@@ -88,6 +100,10 @@ const requiring = () => {
         };
     })
     addBookTolibraryArray()
+    if(canShowBooks){
+        showBooks()
+        canShowBooks=false
+    }
 };
 
 addBook.addEventListener("click", addBookReset
@@ -111,7 +127,7 @@ function toggleAnimation() {
      if (slidedIn === false) {
         centeredElement.classList.add("slide-in")
         overlay.classList.add("active")
-        addBook.style.transfixedForm="scale(0)"
+        addBook.style.transform="scale(0)"
         slidedIn=true
         if(centeredElement.classList[0]==="fadeOut"){ 
         centeredElement.classList.replace("fadeOut","slide-in")
@@ -156,6 +172,7 @@ fixedForm.addEventListener("submit", (event) => {
 submit.addEventListener("click", () => {
     selectValidation()
     requiring()
+
 
 
 })

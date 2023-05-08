@@ -47,7 +47,7 @@ label {
 }
 
 #library {
-  min-height: 300px;
+  min-height: 350px;
   padding: 0 1%;
   display: grid;
   align-items: center;
@@ -56,37 +56,33 @@ label {
 }
 
 .card {
+  padding: 5% 0;
   width: 90%;
   border-radius: 7%;
   height: 100%;
   background-color: rgb(73, 192, 73);
   display: grid;
-  height: 100%;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 3%;
 }
 
 form {
-  height: 100%;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 3%;
 }
 
-#exitContainer {
+.exitContainer {
   display: flex;
+  height: 10%;
   width: 95%;
   justify-content: flex-end;
 }
 
-#exit {
+#exit, .remove {
   cursor: pointer;
   color: white;
   background-color: rgb(73, 192, 73);
@@ -109,6 +105,12 @@ form {
   width: 80%;
 }
 
+.readOnlyInput {
+  border: 2px solid white;
+  color: white;
+  background-color: rgb(73, 192, 73);
+}
+
 .containerInput {
   margin: auto;
   height: 16%;
@@ -118,13 +120,9 @@ form {
   align-items: center;
 }
 
-.containerRead {
-  gap: 15%;
-}
-
 .read {
   cursor: pointer;
-  width: 25%;
+  width: 50%;
 }
 
 .button {
@@ -144,7 +142,7 @@ form {
 #submit {
   width: 25%;
   height: 11%;
-  margin: 1% 0;
+  margin: 2% 0 0 0;
 }
 
 #centered-element {
