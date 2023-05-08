@@ -46,6 +46,7 @@ label{
     transition: transform .2s ease 50ms;
 }
 #library{
+    min-height: 300px;
     padding: 0  1%;
     display: grid;
     align-items: center;
@@ -53,7 +54,7 @@ label{
     gap: 10px;
 }
 
-@mixin card{ 
+@mixin genericCard{ 
     width: 90%;
     border-radius: 7%;
     height: 100%;
@@ -71,8 +72,8 @@ label{
     gap:3%;
 }
 .card{
-    @include card();
-    @include stilus;
+    @include genericCard();
+    @include stilus();
 }
 
 form{
@@ -152,7 +153,7 @@ form{
 
 }
 #centered-element{
-    @include card();
+    @include genericCard();
     box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.75);
     overflow: auto;
     max-width: 405px;

@@ -47,6 +47,7 @@ label {
 }
 
 #library {
+  min-height: 300px;
   padding: 0 1%;
   display: grid;
   align-items: center;

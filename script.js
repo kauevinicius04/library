@@ -1,7 +1,7 @@
-const titleInput = document.getElementById("titleInput")
-const authorInput = document.getElementById("authorInput")
-const pagesInput = document.getElementById("pagesInput")
-const readInput = document.getElementById("readInput")
+const titleInput = document.querySelector(".title")
+const authorInput = document.querySelector(".author")
+const pagesInput = document.querySelector(".pages")
+const readInput = document.querySelector(".read")
 const submit = document.getElementById("submit")
 const centeredElement = document.getElementById("centered-element")
 const addBook = document.getElementById("addBook")
@@ -15,7 +15,6 @@ const card = document.getElementsByClassName("card")
 const libraryArray = [];
 
 let slidedIn = false
-
 function book(title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -32,45 +31,56 @@ function addBookTolibraryArray() {
 
 function showBooks() {
     // Criar uma cópia do elemento original
-let cloneCard = document.createElement("div")
-cloneCard.innerHTML=fixedForm.innerHTML
-cloneCard.classList = "card";
+const cloneCard=fixedForm.cloneNode(true)
+cloneCard.classList = "card"; 
 cloneCard.removeAttribute("id");
+cloneCard.lastElementChild.remove()
+cloneCard.addEventListener("submit", (event) => {
+        event.preventDefault()
+    })
+
 library.appendChild(cloneCard);
-const lastCard=library.lastElementChild
-function changeAttr(){
-    for (let i = 0; i < lastCard.children.length; i++) {
-        let lastCardChildren= lastCard.children[i]
-        lastCardChildren.removeAttribute("id")
-        if(lastCardChildren.childElementCount>0){
-            for (let j = 0; j < lastCardChildren.childElementCount; j++) {
-                lastCardChildren.children[j].removeAttribute("id")
-                
 
-                }  
-            }  
-        }
-}
-changeAttr()
+
+change()
 
 
 
-// Função recursiva para percorrer elementos filhos e neto
-  
+ 
   };
+function change(){
+    if(card.length>0){
+        const lastCloneCard=card[card.length-1]
+        const inputOfLastCard=lastCloneCard.querySelectorAll("input")
+        inputOfLastCard.forEach(element=>{
+            if(element.hasAttribute("required"))
+            {
+            element.removeAttribute("required")
+            element.setAttribute("readonly","") }
+    }
+    )
+    
+    }
+    selectValidation()
+    
+}
   
 
 // Adicionar o clone modificado a um novo local no DOM
+function selectValidation(){
+    if (fixedForm.hasAttribute("novalidate")) {
+        fixedForm.removeAttribute("novalidate")
+    }
 
+}
    
 
 const requiring = () => {
     required.forEach((element) => {
-        if (element.value !== "" && pagesInput.value > 0) {
+        if (element.value && pagesInput.value > 0) {
+            console.log(element)
             centeredElement.classList.replace("slide-in", "fadeOut")
             toggleAnimation()
-            
-            fixedForm.setAttribute('novalidate', '');
 
 
 
@@ -127,9 +137,7 @@ function toggleAnimation() {
 
 function addBookReset() {
     toggleAnimation()
-    if (fixedForm.hasAttribute("novalidate")) {
-        fixedForm.removeAttribute("novalidate")
-    }
+    
     required.forEach(element => {
         element.value = ""
     })
@@ -146,6 +154,7 @@ fixedForm.addEventListener("submit", (event) => {
     event.preventDefault()
 })
 submit.addEventListener("click", () => {
+    selectValidation()
     requiring()
 
 
