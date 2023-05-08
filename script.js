@@ -50,14 +50,17 @@ change()
   };
 function change(){
         const lastCloneCard=card[card.length-1];
+        console.log(lastCloneCard)
         const inputOfLastCard=lastCloneCard.querySelectorAll("input");
         const changeExit=lastCloneCard.querySelector("#exit")
         changeExit.removeAttribute("id")
         changeExit.classList.add("remove")
         const remove= document.querySelectorAll(".remove")
+        console.log(remove)
         remove.forEach(element=>{
             element.addEventListener("click",()=>{
-                lastCloneCard.remove()
+                const closestCard = element.closest(".card")
+                closestCard.remove()
             })
         })
         inputOfLastCard.forEach(element=>{
@@ -86,26 +89,24 @@ function selectValidation(){
    
 
 const requiring = () => {
-    let canShowBooks=false
-    required.forEach((element) => {
-        if (!element.value && pagesInput.value > 0) {
-            console.log(element)
-            centeredElement.classList.replace("slide-in", "fadeOut")
-            toggleAnimation()
-            canShowBooks=true
-
-
-
-
-        };
+    let canShowBooks = true;
+    
+    // Iterar sobre todos os elementos de entrada
+    const inputs = fixedForm.querySelectorAll('input');
+    inputs.forEach(element=>{
+        // Verificar se o elemento é obrigatório e se o valor está em branco ou é zero
+        if (element.hasAttribute('required') && (!element.value || element.value.trim() === '0')) {
+            canShowBooks = false; // definir como false se um elemento obrigatório estiver vazio
+        }
     })
-    addBookTolibraryArray()
-    if(canShowBooks){
-        showBooks()
-        canShowBooks=false
+    
+    // Verificar se todos os elementos obrigatórios estão preenchidos e mostrar os livros
+    if (canShowBooks) {
+        toggleAnimation();
+        addBookTolibraryArray();
+        showBooks();
     }
 };
-
 addBook.addEventListener("click", addBookReset
 
 )
