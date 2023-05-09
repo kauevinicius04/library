@@ -1,0 +1,61 @@
+
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
+@include media-breakpoint-down(lg) { 
+    form.card{
+        width: 100%;
+        height: unset;
+    }
+    #addBook{
+        width: 15%;
+    }
+ }
+ @include media-breakpoint-down(md){
+    #library{
+        grid-template-columns: repeat(3,1fr);
+    }
+ }
+ @include media-breakpoint-down(sm){
+    #library{ 
+    grid-template-columns: repeat(2,1fr);
+    gap: 5px;
+}
+#addBook{
+    width: 25%;
+}
+ }
+
+ @media (max-width:450px) {
+    #library{
+        grid-template-columns: repeat(1,1fr);
+
+    }
+    #addBook{
+        width: 45%;
+    }
+    
+ }
+
+ @media (max-height:380px){
+    .containerInput{
+        height: unset;
+    }
+
+ }
+ 
+ @media (max-height:320px){
+    #submit{
+        height: 40%;
+        width: 30%;
+        margin-bottom: 5px;
+    }
+    form{
+        overflow-y: auto;
+    }
+    #centered-element{
+        padding: unset;
+    }
+    
+ }

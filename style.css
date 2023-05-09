@@ -69,8 +69,8 @@ form.card {
   height: 100%;
 }
 
-#fixedForm {
-  overflow: hidden;
+form {
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -156,7 +156,6 @@ form.card {
   height: 100%;
   display: grid;
   box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.75);
-  overflow: auto;
   max-width: 405px;
   max-height: 480px;
   position: fixed;
