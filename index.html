@@ -3,13 +3,13 @@
 
 <head>
     <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="mediaqueries.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
 </head>
-
 <body>
     <Header>Biblioteca</Header>
     <main>
@@ -27,39 +27,31 @@
                      </svg></button>
                     </div>
                 <div class="containerInput containerTitle" > 
-                        <label for="titleInput">Título</label>
-                        <input type="text" name="titleInput" class= "input title"   required> 
+                        <label >Título</label>
+                        <input type="text" name="titleInput" class= "input title" required> 
                 </div>
                 <div class="containerInput containerAuthor" >
-                    <label for="authorInput">Autor</label>
+                    <label>Autor</label>
                     <input type="text" name="authorInput" class="input author" required>
                 </div>
                 <div  class="containerInput containerPages" >
-                    <label for="pagesInput">Páginas</label>
-                    <input type="number" name="pagesInput" class="input pages"  required>
+                    <label>Páginas</label>
+                    <input type="number" name="pagesInput" class="input pages" required>
                 </div>
                 <div class="containerInput containerRead"> 
-                    <label for="readInput">Lido</label>
-                    <input type="checkbox" name="readInput" class="input read" > 
+                    <label>Lido</label>
+                    <input type="checkbox" name="readInput" class="input read"> 
                 </div>
                 <button class="button" id="submit">Submit</button>
-                
+        
             </form>
- 
 
             </div>
 
-
-
-           
-            
-
-
     </main>
 
-
-
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

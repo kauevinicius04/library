@@ -1,0 +1,6 @@
+@include media-breakpoint-up(lg){
+    .card{
+        width: 100%;
+    }
+
+}
