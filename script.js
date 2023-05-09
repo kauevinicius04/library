@@ -81,7 +81,6 @@ function selectValidation(){
 const requiring = () => {
     let canShowBooks = true;
     // Iterar sobre todos os elementos de entrada
-
     const inputs = fixedForm.querySelectorAll('input');
     inputs.forEach(element=>{
         // Verificar se o elemento é obrigatório e se o valor está em branco ou é zero
