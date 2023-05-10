@@ -3,6 +3,12 @@
 @import "node_modules/bootstrap/scss/variables";
 @import "node_modules/bootstrap/scss/mixins";
 
+
+@include media-breakpoint-up(xxl){
+  .card{
+    min-height: 25vh;
+  }
+}
 @include media-breakpoint-down(lg) { 
     form.card{
         width: 100%;
@@ -53,9 +59,6 @@
     }
     form{
         overflow-y: auto;
-    }
-    #centered-element{
-        padding: unset;
     }
     
  }

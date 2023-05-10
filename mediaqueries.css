@@ -1,3 +1,8 @@
+@media (min-width: 1400px) {
+  .card {
+    min-height: 25vh;
+  }
+}
 @media (max-width: 991.98px) {
   form.card {
     width: 100%;
@@ -42,9 +47,6 @@
   }
   form {
     overflow-y: auto;
-  }
-  #centered-element {
-    padding: unset;
   }
 }
 
