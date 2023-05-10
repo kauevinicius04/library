@@ -4,13 +4,12 @@
   box-sizing: border-box;
 }
 
-html {
+html, body {
   height: 100%;
 }
 
 body {
   background-color: rgba(200, 202, 202, 0.178) !important;
-  margin: auto;
 }
 
 header {
@@ -19,9 +18,35 @@ header {
   margin-bottom: 5px;
 }
 
+main {
+  min-height: 100vh;
+  padding-bottom: 55px;
+}
+
 label {
   font-size: 1.3em;
   margin-bottom: 3px;
+}
+
+#containerAddBook {
+  text-align: center;
+  height: 50px;
+  margin-bottom: 3%;
+  margin-top: 15px;
+}
+
+#addBook {
+  width: 8%;
+  height: 100%;
+  transition: transform 0.2s ease 50ms;
+}
+
+#library {
+  padding: 0 1% 1% 1%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
 }
 
 #overlay {
@@ -39,41 +64,18 @@ label {
   transition: transform 0.2s ease-out 10ms;
 }
 
-#containerAddBook {
-  text-align: center;
-  height: 50px;
-  margin-bottom: 4%;
-}
-
-#addBook {
-  width: 8%;
-  height: 100%;
-  transition: transform 0.2s ease 50ms;
-}
-
-#library {
-  min-height: 400px;
-  padding: 0 1% 1% 1%;
-  display: grid;
+form {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
 }
 
 form.card {
   background-color: rgb(73, 192, 73);
-  max-height: 100%;
   padding: 5% 0;
   width: 90%;
   border-radius: 7%;
   height: 100%;
-}
-
-form {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .exitContainer {
@@ -150,6 +152,7 @@ form {
 }
 
 #centered-element {
+  z-index: 10;
   background-color: rgb(73, 192, 73);
   width: 90%;
   border-radius: 7%;
@@ -161,7 +164,7 @@ form {
   position: fixed;
   top: 50%;
   left: 50%;
-  padding: 1% 0 2% 0;
+  padding: 2% 0 2% 0;
   transform: scale(0) translate(-50%, -50%);
 }
 
@@ -172,6 +175,48 @@ form {
 
 .fadeOut {
   transition: transform 0.4s ease-in;
+}
+
+footer {
+  min-height: 55px;
+  gap: 1%;
+  position: fixed;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: #1f2937;
+  width: 100%;
+}
+
+#gitHubLogo {
+  width: 30px;
+  border: solid 1px transparent;
+  border-radius: 15px;
+}
+
+/* animacao para o logo do github girar*/
+#gitHubLogo:hover {
+  -webkit-animation: spin 4s linear infinite;
+  -moz-animation: spin 4s linear infinite;
+  animation: spin 4s linear infinite;
+}
+
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
