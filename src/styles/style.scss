@@ -1,0 +1,224 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: rgba(200, 202, 202, 0.178) !important;
+}
+
+header {
+  font-size: 2.5em;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+main {
+  min-height: 100vh;
+  padding-bottom: 55px;
+}
+
+label {
+  font-size: 1.3em;
+  margin-bottom: 3px;
+}
+
+#containerAddBook {
+  text-align: center;
+  height: 50px;
+  margin-bottom: 3%;
+  margin-top: 15px;
+}
+
+#addBook {
+  width: 8%;
+  height: 100%;
+  transition: transform 0.2s ease 50ms;
+}
+
+#library {
+  padding: 0 1% 1% 1%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+#overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  transform: scale(0);
+}
+
+.active {
+  transform: scale(1) !important;
+  transition: transform 0.2s ease-out 10ms;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form.card {
+  background-color: rgb(73, 192, 73);
+  padding: 5% 0;
+  width: 90%;
+  border-radius: 7%;
+  height: 100%;
+}
+
+.exitContainer {
+  display: flex;
+  height: 10%;
+  width: 95%;
+  justify-content: flex-end;
+}
+
+#exit, .remove {
+  cursor: pointer;
+  color: white;
+  background-color: rgb(73, 192, 73);
+  border: none;
+  width: 12%;
+}
+
+.bi:hover {
+  transform: scale(1.2);
+  rotate: 25deg;
+  transition: transform, rotate 0.4s ease-in 10ms;
+}
+
+.input {
+  height: 100%;
+  width: 80%;
+}
+
+.read {
+  min-height: 25px;
+}
+
+.readOnlyInput {
+  font-size: 1.6em;
+  font-weight: bolder;
+  text-align: start;
+  border: 1px solid black;
+  color: white;
+  background-color: rgb(73, 192, 73);
+}
+
+.containerInput {
+  margin: auto;
+  height: 16%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.read {
+  cursor: pointer;
+  width: 50%;
+}
+
+.button {
+  cursor: pointer;
+  color: white;
+  background-color: rgb(63, 62, 62);
+  border-radius: 8%;
+  text-align: center;
+}
+
+.button:hover {
+  opacity: 97%;
+  transform: scale(1.2);
+  transition: transform 0.4s ease-out;
+}
+
+#submit {
+  width: 25%;
+  height: 11%;
+  margin: 2% 0 0 0;
+}
+
+#centered-element {
+  z-index: 10;
+  background-color: rgb(73, 192, 73);
+  width: 90%;
+  border-radius: 7%;
+  height: 100%;
+  display: grid;
+  box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.75);
+  max-width: 405px;
+  max-height: 480px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  padding: 2% 0 2% 0;
+  transform: scale(0) translate(-50%, -50%);
+}
+
+.slide-in {
+  transform: scale(1) translate(-50%, -50%) !important;
+  transition: transform 0.4s ease-out;
+}
+
+.fadeOut {
+  transition: transform 0.4s ease-in;
+}
+
+footer {
+  min-height: 55px;
+  gap: 1%;
+  position: fixed;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: #1f2937;
+  width: 100%;
+}
+
+#gitHubLogo {
+  width: 30px;
+  border: solid 1px transparent;
+  border-radius: 15px;
+}
+
+/* animacao para o logo do github girar*/
+#gitHubLogo:hover {
+  -webkit-animation: spin 4s linear infinite;
+  -moz-animation: spin 4s linear infinite;
+  animation: spin 4s linear infinite;
+}
+
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+
+@import 'mediaqueries.scss';

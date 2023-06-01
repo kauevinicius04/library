@@ -31,8 +31,10 @@ function addBookTolibraryArray() {
     libraryArray.push(newsBook)
 }
 
-let slidedIn = false
+
 // funcao para animacao do overlay e do #fixedForm adicionando ou removendo classes que tem os estilos predefinidos no css
+let slidedIn = false
+
 function toggleAnimation() {
 
      if (slidedIn === false) {
