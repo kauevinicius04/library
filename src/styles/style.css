@@ -265,10 +265,11 @@ footer {
     width: 30%;
     margin-bottom: 5px;
   }
+  .exitContainer {
+    height: unset;
+  }
   form {
     overflow-y: auto;
     overflow-x: hidden;
   }
 }
-
-/*# sourceMappingURL=style.css.map */
