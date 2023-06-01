@@ -1,17 +1,17 @@
 //variaveis de acesso ao DOM
-const titleInput  = document.querySelector(".title")
+const titleInput = document.querySelector(".title")
 const authorInput = document.querySelector(".author")
-const pagesInput  = document.querySelector(".pages")
-const readInput   = document.querySelector(".read")
-const submit      =    document.getElementById("submit")
+const pagesInput = document.querySelector(".pages")
+const readInput = document.querySelector(".read")
+const submit = document.getElementById("submit")
 const centeredElement = document.getElementById("centered-element")
-const addBook   = document.getElementById("addBook")
-const required  = document.querySelectorAll("[required]");
+const addBook = document.getElementById("addBook")
+const required = document.querySelectorAll("[required]");
 const fixedForm = document.getElementById("fixedForm")
-const exit      = document.getElementById("exit");
-const overlay   = document.getElementById("overlay")
-const library   = document.getElementById("library")
-const card      = document.getElementsByClassName("card")
+const exit = document.getElementById("exit");
+const overlay = document.getElementById("overlay")
+const library = document.getElementById("library")
+const card = document.getElementsByClassName("card")
 
 
 //variavel para armazenar os objetos book
@@ -37,25 +37,23 @@ let slidedIn = false
 
 function toggleAnimation() {
 
-     if (slidedIn === false) {
+    if (slidedIn === false) {
         centeredElement.classList.add("slide-in")
         overlay.classList.add("active")
-        addBook.style.transform="scale(0)"
-        slidedIn=true
-        if(centeredElement.classList[0]==="fadeOut"){ 
-        centeredElement.classList.replace("fadeOut","slide-in")
+        addBook.style.transform = "scale(0)"
+        slidedIn = true
+        if (centeredElement.classList[0] === "fadeOut") {
+            centeredElement.classList.replace("fadeOut", "slide-in")
+        }
+
+    } else if (slidedIn === true) {
+        centeredElement.classList.replace("slide-in", "fadeOut")
+        overlay.style = "initial"
+        overlay.classList.remove("active")
+        addBook.style = "initial"
+        slidedIn = false
     }
 
-    }
-       
-    else if(slidedIn===true){
-        centeredElement.classList.replace("slide-in","fadeOut")
-            overlay.style = "initial"
-            overlay.classList.remove("active")
-            addBook.style="initial"
-            slidedIn=false
-    }
-    
 }
 
 
@@ -64,60 +62,60 @@ function toggleAnimation() {
 
 function showBooks() {
     // Criar uma cópia do elemento #fixedForm
-const cloneCard=fixedForm.cloneNode(true)
-cloneCard.classList = "card"; 
-cloneCard.removeAttribute("id");
-cloneCard.lastElementChild.remove()
-cloneCard.addEventListener("submit", (event) => {
+    const cloneCard = fixedForm.cloneNode(true)
+    cloneCard.classList = "card";
+    cloneCard.removeAttribute("id");
+    cloneCard.lastElementChild.remove()
+    cloneCard.addEventListener("submit", (event) => {
         event.preventDefault()
     })
-library.appendChild(cloneCard);
-change()
- 
-  };
+    library.appendChild(cloneCard);
+    change()
+
+};
 
 // funcao para mudar atributos dos clones e adicao de novos atributos
-function change(){
-        const lastCloneCard=card[card.length-1];
-        const inputOfLastCard=lastCloneCard.querySelectorAll("input");
-        const changeExit=lastCloneCard.querySelector("#exit")
-        changeExit.removeAttribute("id")
-        changeExit.classList.add("remove")
-        const remove= document.querySelectorAll(".remove")
-        remove.forEach(element=>{
-            element.addEventListener("click",()=>{
-                const closestCard = element.closest(".card")
-                closestCard.remove()
-            })
+function change() {
+    const lastCloneCard = card[card.length - 1];
+    const inputOfLastCard = lastCloneCard.querySelectorAll("input");
+    const changeExit = lastCloneCard.querySelector("#exit")
+    changeExit.removeAttribute("id")
+    changeExit.classList.add("remove")
+    const remove = document.querySelectorAll(".remove")
+    remove.forEach(element => {
+        element.addEventListener("click", () => {
+            const closestCard = element.closest(".card")
+            closestCard.remove()
         })
-        inputOfLastCard.forEach(element=>{
-            element.classList.add("readOnlyInput")
-            if(element.hasAttribute("required"))
-            {
+    })
+    inputOfLastCard.forEach(element => {
+        element.classList.add("readOnlyInput")
+        if (element.hasAttribute("required")) {
             element.removeAttribute("required")
-            element.setAttribute("readonly","") }
-    
+            element.setAttribute("readonly", "")
+        }
+
     })
 
 }
-  
 
 
-   
+
+
 // funcao para checar inputs obrigatorios e caso true mostrar o card do livro
 const requiring = () => {
     let canShowBooks = true;
     // Iterar sobre todos os elementos de entrada
     const inputs = fixedForm.querySelectorAll('input');
-    inputs.forEach(element=>{
+    inputs.forEach(element => {
         // Verificar se o elemento é obrigatório e se o valor está em branco ou é zero
 
         if (element.hasAttribute('required') && (!element.value || element.value.trim() === '0')) {
-    
+
             canShowBooks = false; // retornar como false se um elemento obrigatório estiver vazio
         }
     })
-    
+
     // Verificar se todos os elementos obrigatórios estão preenchidos e mostrar os livros
     if (canShowBooks) {
         toggleAnimation();
@@ -139,7 +137,7 @@ function addBookReset() {
         element.value = ""
     })
     readInput.checked = false
-    
+
 }
 
 //event listener para adicionar aparicao de #fixedForm
@@ -148,14 +146,13 @@ addBook.addEventListener("click", addBookReset
 )
 
 // event listener para sair de #fixedForm
-exit.addEventListener("click",()=>{
+exit.addEventListener("click", () => {
     toggleAnimation()
-    
+
 })
 
 // event listener para ao clicar no overlay executar animacao e  retornar à tela principal
-overlay.addEventListener("click",toggleAnimation
-)
+overlay.addEventListener("click", toggleAnimation)
 
 
 // eventlistener previnir o submit do form 
