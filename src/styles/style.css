@@ -267,6 +267,7 @@ footer {
   }
   form {
     overflow-y: auto;
+    overflow-x: hidden;
   }
 }
 
